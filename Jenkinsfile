@@ -14,6 +14,9 @@ pipeline {
                 sh 'docker push 682111399744.dkr.ecr.us-east-1.amazonaws.com/nodejs:latest'
             }
         }
+        stage('deploy'){
+            steps{
+                sh 'docker run -d --name nodejs-app -p 8080:8081 682111399744.dkr.ecr.us-east-1.amazonaws.com/nodejs:latest'
 
     }
 }
